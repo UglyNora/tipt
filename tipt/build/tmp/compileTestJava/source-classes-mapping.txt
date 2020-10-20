@@ -1,0 +1,2 @@
+com/mcenterprise/tipt/TiptApplicationTests.java
+ com.mcenterprise.tipt.TiptApplicationTests
