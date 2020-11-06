@@ -2,14 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title>$Tipt</title>
+    <title></title>
     <link rel="stylesheet" th:href="@{/styles.css}">
     <script th:src="@{/script.js}"></script>
 </head>
 <body>
 
 <nav th:fragment="header">
-    <h1 th:text="${title}"><$Tipt></h1>
+    <h1 ><img th:src="@{images/Tipt.png}"/></h1>
     <ul>
         <li><a href="/address">Find Address</a></li>
         <li><a href="/ShiptMate">Find Shiptmate</a></li>
