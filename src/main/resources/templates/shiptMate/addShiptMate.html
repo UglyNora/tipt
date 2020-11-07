@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Sign Up</title>
+</head>
+<body>
+<form method = 'post' th:action="@{/shiptMate}">
+    <h1 ><img src="../../images/Tipt.png"/></h1>
+    <label>
+        Username:
+        <input type = 'text' th:field = "${shiptMate.username}">
+    </label>
+    <p class="error" th:errors="${shiptMate.username}"></p>
+
+    <label>
+        Email:
+        <input  name = 'email' th:field="${shiptMate.email}">
+    </label>
+    <p class="error" th:errors="${shiptMate.email}"></p>
+    <label>
+        Password:
+        <input type = 'password' th:field = "${shiptMate.password}">
+    </label>
+    <p class="error" th:errors="${shiptMate.password}"></p>
+    <label>
+        Verify Password:
+        <input type = 'verifyPassword' th:field = "${shiptMate.verifyPassword}">
+    </label>
+    <p class="error" th:errors="${shiptMate.verifyPassword}"></p>
+
+
+    <input type = 'submit' value = 'Sign Up'>
+</form>
+
+</body>
+</html>
