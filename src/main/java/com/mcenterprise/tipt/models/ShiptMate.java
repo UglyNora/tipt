@@ -1,14 +1,22 @@
 package com.mcenterprise.tipt.models;
 
+
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-
+@Entity
 public class ShiptMate {
+
+
+    @Id
+    @GeneratedValue
     private int id;
-    private static int nextId = 1;
+
 
     @NotBlank(message = "Please provide a username!")
     @Size(min = 5, max= 15)
@@ -30,12 +38,11 @@ public class ShiptMate {
     }
 
     public ShiptMate(String username, String email, String password) {
-        this();
+
         this.username = username;
         this.email = email;
         this.password = password;
-        this.id = nextId;
-        nextId++;
+
     }
 
     public String getUsername() {
