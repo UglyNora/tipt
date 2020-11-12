@@ -19,7 +19,7 @@ public class ShiptMate {
 
 
     @NotBlank(message = "Please provide a username!")
-    @Size(min = 5, max= 15)
+    @Size(min = 5, max= 15, message = "Username must be between 5 and 15 characters!")
     private String username;
 
     @Email(message = "Invalid email!")

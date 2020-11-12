@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Welcome</title>
+</head>
 <body>
-
-<h1></h1>
-
-<header th:replace="fragments :: header"></header>
-
+ <h1 th:text = "'Welcome Aboard ' + ${shiptMate.username} + '!'"></h1>
+ <a th:href="@{/}">
+    Find Great Tips here!
+ </a>
 </body>
 </html>
