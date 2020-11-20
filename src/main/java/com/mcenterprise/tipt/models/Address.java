@@ -1,17 +1,13 @@
 package com.mcenterprise.tipt.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Address {
+public class Address extends AbstractEntity {
 
 
-    @Id
-    @GeneratedValue
-    private int id;
+
     @NotBlank (message = "Street address is required")
     private String street;
 
@@ -24,7 +20,18 @@ public class Address {
     @NotBlank(message = "Zip Code is required")
     private String zipCode;
 
+    private AddressRating type;
+
     public Address() {
+    }
+
+    public Address(int id, @NotBlank(message = "Street address is required") String street, @NotBlank(message = "City is required") String city, @NotBlank(message = "State is required") String state, @NotBlank(message = "Zip Code is required") String zipCode, AddressRating type) {
+
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zipCode = zipCode;
+        this.type = type;
     }
 
     public String getStreet() {
@@ -57,5 +64,13 @@ public class Address {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public AddressRating getType() {
+        return type;
+    }
+
+    public void setType(AddressRating type) {
+        this.type = type;
     }
 }
