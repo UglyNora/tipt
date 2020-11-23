@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ShiptMateRepository extends CrudRepository<ShiptMate, Integer> {
+
+    ShiptMate findByUsername(String username);
 }
