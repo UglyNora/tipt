@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
-    <title></title>
+    <title>Tipt</title>
     <link rel="stylesheet" th:href="@{/styles.css}">
     <script th:src="@{/script.js}"></script>
 </head>
@@ -11,8 +11,8 @@
 <nav th:fragment="header">
     <h1 ><img th:src="@{images/Tipt.png}"/></h1>
     <ul>
-        <button><a href="/signIn">Sign In</a></button>
-        <button><a href="/shiptMate/addShiptMate">Create Account</a></button>
+        <button><a href="/login">Sign In</a></button>
+        <button><a href="/register">Create Account</a></button>
     </ul>
 </nav>
 

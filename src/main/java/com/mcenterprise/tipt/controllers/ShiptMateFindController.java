@@ -16,25 +16,25 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("shiptMate")
-public class ShiptMateController {
+public class ShiptMateFindController {
 
     @Autowired
     private ShiptMateRepository shiptMateRepository;
 
-    @GetMapping("/addShiptMate")
-    public String displayAddShiptMateForm(Model model) {
+    @GetMapping("/findShiptMate")
+    public String displayFindShiptMateForm(Model model) {
         model.addAttribute("shiptMate", new ShiptMate());
-        return "shiptMate/addShiptMate";
+        return "shiptMate/findShiptMate";
     }
 
     @PostMapping
-    public String processAddUserForm(Model model, @ModelAttribute @Valid ShiptMate shiptMate, Errors errors) {
+    public String processFindUserForm(Model model, @ModelAttribute @Valid ShiptMate shiptMate, Errors errors) {
 
 
 
         if(errors.hasErrors())  {
             model.addAttribute("error", "Please check your input!");
-            return "shiptMate/addShiptMate";
+            return "shiptMate/findShiptMate";
         }
 //
 //

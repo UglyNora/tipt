@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-public class AuthenticationController {
+public class ShiptMateAuthController {
 
     @Autowired
     ShiptMateRepository shiptMateRepository;
@@ -61,7 +61,7 @@ public class AuthenticationController {
             return "register";
         }
 
-       ShiptMate existingShiptMate = shiptMateRepository.findByUsername(registerFormDTO.getUsername());
+        ShiptMate existingShiptMate = shiptMateRepository.findByUsername(registerFormDTO.getUsername());
 
         if (existingShiptMate != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
@@ -77,7 +77,7 @@ public class AuthenticationController {
             return "register";
         }
 
-       ShiptMate newShiptMate = new ShiptMate(registerFormDTO.getUsername(), registerFormDTO.getPassword());
+        ShiptMate newShiptMate = new ShiptMate(registerFormDTO.getUsername(), registerFormDTO.getPassword());
         shiptMateRepository.save(newShiptMate);
         setUserInSession(request.getSession(), newShiptMate);
 
@@ -129,6 +129,4 @@ public class AuthenticationController {
     }
 
 }
-
-
 
