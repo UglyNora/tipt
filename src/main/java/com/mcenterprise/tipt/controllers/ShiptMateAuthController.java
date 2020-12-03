@@ -104,7 +104,7 @@ public class ShiptMateAuthController {
         ShiptMate theShiptMate = shiptMateRepository.findByUsername(loginFormDTO.getUsername());
 
         if (theShiptMate == null) {
-            errors.rejectValue("username", "user.invalid", "The given username does not exist");
+            errors.rejectValue("username", "username.invalid", "The given username does not exist");
             model.addAttribute("title", "Log In");
             return "login";
         }

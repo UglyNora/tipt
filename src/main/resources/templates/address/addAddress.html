@@ -1,13 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-</head>
-<body>
-<form method="post" action="">
-    <input type="text" name="name"/>
-    <input type="submit" value="add!"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<form method="post">
+    <div class="form-group">
+        <label>Name
+            <input th:field="${address.street}" class="form-control">
+        </label>
+        <p class="error" th:errors="${address.city}"></p>
+    </div>
+    <div class="form-group">
+        <label>Description
+            <input th:field="${address.state}" class="form-control">
+        </label>
+        <p class="error" th:errors="${address.zipCode}"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Type
+            <select th:field="${address.type}">
+                <option th:each="type : ${types}"
+                        th:value="${type}"
+                        th:text="${type.displayRating}"
+                ></option>
+            </select>
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add" class="btn btn-success">
+    </div>
 </form>
+
 </body>
 </html>

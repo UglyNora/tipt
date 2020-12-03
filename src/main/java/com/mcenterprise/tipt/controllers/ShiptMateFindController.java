@@ -28,7 +28,7 @@ public class ShiptMateFindController {
     }
 
     @PostMapping
-    public String processFindUserForm(Model model, @ModelAttribute @Valid ShiptMate shiptMate, Errors errors) {
+    public String processFindShiptMateForm(Model model, @ModelAttribute @Valid ShiptMate shiptMate, Errors errors) {
 
 
 
