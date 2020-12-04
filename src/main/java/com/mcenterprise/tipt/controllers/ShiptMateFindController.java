@@ -1,7 +1,7 @@
 package com.mcenterprise.tipt.controllers;
 
 
-import com.mcenterprise.tipt.data.ShiptMateRepository;
+import com.mcenterprise.tipt.models.data.ShiptMateRepository;
 import com.mcenterprise.tipt.models.ShiptMate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,4 +42,5 @@ public class ShiptMateFindController {
         return "shiptMate/index";
     }
 
+//TODO render view for searched ShiptMate
     }

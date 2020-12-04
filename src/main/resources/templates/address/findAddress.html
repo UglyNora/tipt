@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
 <body>
+<header th:replace="fragments ::page-header "></header>
 <form method="post" action="">
     <input type="text" name="name"/>
-    <input type="submit" value="find"/>
+    <input type="submit" value="Search"/>
 </form>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 package com.mcenterprise.tipt.controllers;
 
-import com.mcenterprise.tipt.data.ShiptMateRepository;
+import com.mcenterprise.tipt.models.data.ShiptMateRepository;
 import com.mcenterprise.tipt.models.ShiptMate;
 import com.mcenterprise.tipt.models.dto.LoginFormDTO;
 import com.mcenterprise.tipt.models.dto.RegisterFormDTO;
@@ -101,23 +101,23 @@ public class ShiptMateAuthController {
             return "login";
         }
 
-        ShiptMate theShiptMate = shiptMateRepository.findByUsername(loginFormDTO.getUsername());
+        ShiptMate shiptMate = shiptMateRepository.findByUsername(loginFormDTO.getUsername());
 
-        if (theShiptMate == null) {
-            errors.rejectValue("username", "username.invalid", "The given username does not exist");
+        if (shiptMate == null) {
+            errors.rejectValue("username", "user.invalid", "The given username does not exist");
             model.addAttribute("title", "Log In");
             return "login";
         }
 
         String password = loginFormDTO.getPassword();
 
-        if (!theShiptMate.isMatchingPassword(password)) {
+        if (!shiptMate.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
             model.addAttribute("title", "Log In");
             return "login";
         }
 
-        setUserInSession(request.getSession(), theShiptMate);
+        setUserInSession(request.getSession(), shiptMate);
 
         return "redirect:";
     }

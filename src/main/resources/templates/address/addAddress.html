@@ -3,24 +3,36 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-<header th:replace="fragments :: header"></header>
+<header th:replace="fragments :: page-header"></header>
 
 <form method="post">
     <div class="form-group">
-        <label>Name
+        <label>Street
             <input th:field="${address.street}" class="form-control">
+        </label>
+        <p class="error" th:errors="${address.street}"></p>
+    </div>
+    <div class="form-group">
+        <label>City
+            <input th:field="${address.city}" class="form-control">
         </label>
         <p class="error" th:errors="${address.city}"></p>
     </div>
     <div class="form-group">
-        <label>Description
+        <label>City
             <input th:field="${address.state}" class="form-control">
+        </label>
+        <p class="error" th:errors="${address.state}"></p>
+    </div>
+    <div class="form-group">
+        <label>Zip Code
+            <input th:field="${address.zipCode}" class="form-control">
         </label>
         <p class="error" th:errors="${address.zipCode}"></p>
     </div>
 
     <div class="form-group">
-        <label>Type
+        <label>Rating
             <select th:field="${address.type}">
                 <option th:each="type : ${types}"
                         th:value="${type}"

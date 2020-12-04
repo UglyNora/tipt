@@ -1,7 +1,7 @@
 package com.mcenterprise.tipt;
 
 import com.mcenterprise.tipt.controllers.ShiptMateAuthController;
-import com.mcenterprise.tipt.data.ShiptMateRepository;
+import com.mcenterprise.tipt.models.data.ShiptMateRepository;
 import com.mcenterprise.tipt.models.ShiptMate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;

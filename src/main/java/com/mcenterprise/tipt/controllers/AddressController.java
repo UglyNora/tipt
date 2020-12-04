@@ -1,8 +1,8 @@
 package com.mcenterprise.tipt.controllers;
 
-import com.mcenterprise.tipt.data.AddressRepository;
 import com.mcenterprise.tipt.models.Address;
 import com.mcenterprise.tipt.models.AddressRating;
+import com.mcenterprise.tipt.models.data.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +26,7 @@ public class AddressController {
     }
 
     @GetMapping("addAddress")
-    public String displayCreateEventForm(Model model) {
+    public String displayAddAddressForm(Model model) {
         model.addAttribute("title", "Add Address");
         model.addAttribute(new Address());
         model.addAttribute("types", AddressRating.values());
@@ -46,7 +46,7 @@ public class AddressController {
     }
 
     @GetMapping("delete")
-    public String displayDeleteEventForm(Model model) {
+    public String displayDeleteAddressForm(Model model) {
         model.addAttribute("title", "Delete Events");
         model.addAttribute("events", addressRepository.findAll());
         return "address/delete";
@@ -62,6 +62,29 @@ public class AddressController {
         }
 
         return "redirect:";
+
+
     }
 
+    @GetMapping("/findAddress")
+    public String displayFindAddressForm(Model model) {
+        model.addAttribute("address", new Address());
+        return "address/findAddress";
+    }
+
+    @PostMapping
+    public String processFindAddressForm(Model model, @ModelAttribute @Valid Address address, Errors errors) {
+
+
+
+        if(errors.hasErrors())  {
+            model.addAttribute("error", "Please check your input!");
+            return "address/findAddress";
+        }
+
+
+
+        return "address/index";
+    }
+//TODO render view for searched address
 }

@@ -1,4 +1,4 @@
-package com.mcenterprise.tipt.data;
+package com.mcenterprise.tipt.models.data;
 
 import com.mcenterprise.tipt.models.Address;
 import org.springframework.data.repository.CrudRepository;

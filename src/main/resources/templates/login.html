@@ -3,7 +3,7 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-<header th:replace="fragments :: header"></header>
+<header th:replace="fragments :: page-header"></header>
 
 <form method="post">
     <div class="form-group">
@@ -22,7 +22,6 @@
     <input type="submit" class="btn btn-primary" value="Log In" />
 </form>
 
-<p>Don't have an account? <a href="/register">Register for one.</a></p>
+<p>Don't have an account? <a href="/register">Create one.</a></p>
 
 </body>
-</html>

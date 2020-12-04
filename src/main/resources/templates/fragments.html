@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <title>Tipt</title>
-    <link rel="stylesheet" th:href="@{/styles.css}">
-    <script th:src="@{/script.js}"></script>
+    <!-- Bootstrap stylesheets and script -->
+    <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/static/styles.css}">
 </head>
 <body>
-
-<nav th:fragment="header">
-    <h1 ><img th:src="@{images/Tipt.png}"/></h1>
-    <ul>
+<nav th:fragment="page-header">
+    <img src="/static/Tipt.png" alt="$Tipt">
 
 
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="/register">Create Account</a></li>
+        <li class="nav-item"><a class="nav-link" href="/address/findAddress">Find Address</a></li>
+        <li class="nav-item"><a class="nav-link" href="/address/addAddress">Add Address</a></li>
+        <li class="nav-item"><a class="nav-link" href="/shiptMate/findShiptMate">Find ShiptMate</a></li>
+        <li class="nav-item"><a class="nav-link" href="/login">Logout</a></li>
     </ul>
 </nav>
 
