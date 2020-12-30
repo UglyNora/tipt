@@ -1,6 +1,7 @@
 package com.mcenterprise.tipt.controllers;
 
 import com.mcenterprise.tipt.models.Address;
+import com.mcenterprise.tipt.models.AddressInfo;
 import com.mcenterprise.tipt.models.AddressRating;
 import com.mcenterprise.tipt.models.data.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class AddressController {
         model.addAttribute("title", "Add Address");
         model.addAttribute(new Address());
         model.addAttribute("types", AddressRating.values());
+        model.addAttribute(new AddressInfo());
         return "address/addAddress";
     }
 

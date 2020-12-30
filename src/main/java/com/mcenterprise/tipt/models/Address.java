@@ -1,11 +1,18 @@
 package com.mcenterprise.tipt.models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Address extends AbstractEntity {
 
+
+
+    @ManyToMany
+    private List<AddressInfo> addressInfo = new ArrayList<AddressInfo>();
 
 
     @NotBlank (message = "Street address is required")
@@ -25,13 +32,14 @@ public class Address extends AbstractEntity {
     public Address() {
     }
 
-    public Address(int id, @NotBlank(message = "Street address is required") String street, @NotBlank(message = "City is required") String city, @NotBlank(message = "State is required") String state, @NotBlank(message = "Zip Code is required") String zipCode, AddressRating type) {
+    public Address(int id, @NotBlank(message = "Street address is required") String street, @NotBlank(message = "City is required") String city, @NotBlank(message = "State is required") String state, @NotBlank(message = "Zip Code is required") String zipCode, AddressRating type, List<AddressInfo> someInfo) {
 
         this.street = street;
         this.city = city;
         this.state = state;
         this.zipCode = zipCode;
         this.type = type;
+        this.addressInfo = someInfo;
     }
 
     public String getStreet() {
@@ -72,5 +80,13 @@ public class Address extends AbstractEntity {
 
     public void setType(AddressRating type) {
         this.type = type;
+    }
+
+    public List<AddressInfo> getAddressInfo() {
+        return addressInfo;
+    }
+
+    public void setAddressInfo(List<AddressInfo> addressInfo) {
+        this.addressInfo = addressInfo;
     }
 }
