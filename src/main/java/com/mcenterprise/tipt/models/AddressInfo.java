@@ -8,6 +8,8 @@ import java.util.List;
 @Entity
 public class AddressInfo extends AbstractEntity {
 
+
+
     @Size(max = 500, message = "Exceeded maximum characters allowed!")
     private String details;
 
@@ -15,6 +17,8 @@ public class AddressInfo extends AbstractEntity {
 
     @ManyToMany(mappedBy="addressInfo")
     private List<Address> addresses = new ArrayList<Address>();
+
+
 
 
 

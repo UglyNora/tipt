@@ -3,10 +3,66 @@
 <head th:replace="fragments :: head"></head>
 <body>
 <header th:replace="fragments ::page-header "></header>
-<form method="post" action="">
-    <input type="text" name="find address"/>
-    <input type="submit" value="Search"/>
+<form th:action="@{/search/results}" method = "post">
+    <h2>Search by:</h2>
+
+    <p>
+            <span th:each="column : ${columns}">
+                <input
+                        type="radio"
+                        name="searchType"
+                        th:id="${column.key}"
+                        th:value="${column.key}"
+                        th:checked="${column.key == 'all'}"/>
+                <label th:for="${column.key}" th:text="${column.value}"></label>
+            </span>
+
+    </p>
+
+    <p>
+        <label for="searchTerm">Keyword:</label>
+        <input type="text" name="searchTerm" id="searchTerm" />
+    </p>
+
+    <input type="submit" value="Search" />
 </form>
+
+<hr />
+
+
+<table class="address-listing">
+    <tr th:each="address: ${address}">
+        <td>
+            <p>
+                Street Name:
+                <a th:href="@{'/view/' + ${address.street}}" th:text="${address.street}"></a>
+            </p>
+            <p th:text="${'City: ' + address.city}"></p>
+            <p>
+            </p>
+            <p th:text="${'State: ' + address.state}"></p>
+            <p>
+
+            </p>
+            <p th:text="${'Zipcode: ' + address.zipCode}"></p>
+            <p>
+                Address Info:
+                <a th:href="@{'/address/addressInfo/' + ${address.getAddressInfo()}}" th:text="${address.addressInfo}"></a>
+            </p>
+            <p>
+               Address Rating:
+            <ul th:text="${address.type}">
+                <li>
+                    <a th:href="@{'/skills/AddressRating/' + ${address.getType()}}" th:text="${address.getType()}"></a>
+                </li>
+            </ul>
+            </p>
+
+        </td>
+    </tr>
+</table>
+
+</div>
 
 </body>
 </html>

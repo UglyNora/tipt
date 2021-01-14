@@ -49,8 +49,8 @@ public class AddressController {
 
     @GetMapping("delete")
     public String displayDeleteAddressForm(Model model) {
-        model.addAttribute("title", "Delete Events");
-        model.addAttribute("events", addressRepository.findAll());
+        model.addAttribute("title", "Delete Addresses");
+        model.addAttribute("addresses", addressRepository.findAll());
         return "address/delete";
     }
 
@@ -88,5 +88,5 @@ public class AddressController {
 
         return "address/index";
     }
-//TODO render view for searched address
+
 }

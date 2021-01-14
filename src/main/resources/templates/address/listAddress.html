@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+
+
+<header th:replace="fragments :: page-header"></header>
+
+<div class="container body-content">
+    <h1 th:text="${}"></h1>
+    <h2 class = "centered">View Jobs By Category</h2>
+</div>
+
+<table class="centeredTable">
+    <tr>
+        <th>Address</th>
+        <th>Address Info</th>
+        <th>Address Rating</th>
+    </tr>
+
+    <tr>
+        <td>
+            <li>
+                <a th:href="@{/list/addresses(column='address',value='View Address')}">View Address</a>
+            </li>
+        </td>
+        <td>
+            <li th:each="address : ${addresses}">
+                <a th:href="@{/list/addresses(column=addressInfo,value=${})}" th:text="${}"></a>
+            </li>
+        </td>
+        <td>
+            <li th:each="skill : ${skills}">
+                <a th:href="@{/list/addresses(column=addressRating,value=${addressRating.dispalyRating})}" th:text="${skill.name}"></a>
+            </li>
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>

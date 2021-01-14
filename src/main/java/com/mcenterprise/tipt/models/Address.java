@@ -14,6 +14,7 @@ public class Address extends AbstractEntity {
     @ManyToMany
     private List<AddressInfo> addressInfo = new ArrayList<AddressInfo>();
 
+    AddressRating displayRating;
 
     @NotBlank (message = "Street address is required")
     private String street;
