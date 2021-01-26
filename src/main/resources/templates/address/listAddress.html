@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
-
-
+<body class="container">
 
 <header th:replace="fragments :: page-header"></header>
 
 <div class="container body-content">
-    <h1 th:text="${}"></h1>
-    <h2 class = "centered">View Jobs By Category</h2>
+    <h1 th:text="${''}"></h1>
+    <h2 class = "centered">View Address</h2>
 </div>
 
 <table class="centeredTable">
@@ -22,17 +20,18 @@
     <tr>
         <td>
             <li>
-                <a th:href="@{/list/addresses(column='address',value='View Address')}">View Address</a>
+                <a th:href="@{/list/addresses(column='Address',value='View Address')}">View Address</a>
             </li>
         </td>
+        <td>
+            <li th:each="addressInfo : ${addressInfo}">
+                <a th:href="@{/list/addresses(column= addressInfo,value=addressInfo.details)}" th:text="${addressInfo.details}"></a>
+            </li>
+        </td>
+
         <td>
             <li th:each="address : ${addresses}">
-                <a th:href="@{/list/addresses(column=addressInfo,value=${})}" th:text="${}"></a>
-            </li>
-        </td>
-        <td>
-            <li th:each="skill : ${skills}">
-                <a th:href="@{/list/addresses(column=addressRating,value=${addressRating.dispalyRating})}" th:text="${skill.name}"></a>
+                <a th:href="@{/list/addresses(column=addressRating,value=${address.getType()})}" th:text="${addressRating}"></a>
             </li>
         </td>
     </tr>

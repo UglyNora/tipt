@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: page-header"></header>
+
+<div class="address-listing">
+    <p th:text="${'Rating: ' + address.getType()}"></p>
+
+</div>
+
 
 </body>
 </html>

@@ -56,7 +56,7 @@ public class SearchAddress {
     }
 
     /**
-     * Search all Job fields for the given term.
+     * Search all Address fields for the given term.
      *
      * @param value        The search term to look for.
      * @param allAddresses The list of addresses to search.

@@ -3,7 +3,6 @@ package com.mcenterprise.tipt.controllers;
 import com.mcenterprise.tipt.models.Address;
 import com.mcenterprise.tipt.models.SearchAddress;
 import com.mcenterprise.tipt.models.data.AddressInfoRepository;
-import com.mcenterprise.tipt.models.data.AddressRatingRepository;
 import com.mcenterprise.tipt.models.data.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +19,6 @@ public class AddressListController {
     @Autowired
     private AddressRepository addressRepository;
 
-   @Autowired
-   private AddressRatingRepository addressRatingRepository;
 
     @Autowired
     private AddressInfoRepository addressInfoRepository;
@@ -41,9 +38,8 @@ public class AddressListController {
     public String list(Model model) {
         model.addAttribute("addresses", addressRepository.findAll());
         model.addAttribute("addressInfo", addressInfoRepository.findAll());
-        model.addAttribute("addressRating", addressRatingRepository.findAll());
-
-        return "listAddress";
+        model.addAttribute("addressRating", addressRepository.findAll());
+        return "address/listAddress";
     }
 
     @RequestMapping(value = "addresses")
@@ -51,13 +47,13 @@ public class AddressListController {
         Iterable<Address> addresses;
         if (column.toLowerCase().equals("all")){
             addresses= addressRepository.findAll();
-            model.addAttribute("title", "All Jobs");
+            model.addAttribute("title", "All Addresses");
         } else {
             addresses = SearchAddress.findByColumnAndValue(column, value, addressRepository.findAll());
             model.addAttribute("title", "Addresses" + columnChoices.get(column) + ": " + value);
         }
         model.addAttribute("addresses", addresses);
 
-        return "listAddress";
+        return "address/listAddress";
     }
 }

@@ -19,7 +19,7 @@
         <p class="error" th:errors="${address.city}"></p>
     </div>
     <div class="form-group">
-        <label>City
+        <label>State
             <input th:field="${address.state}" class="form-control">
         </label>
         <p class="error" th:errors="${address.state}"></p>
@@ -48,13 +48,13 @@
     </div>
 
     <div class="form-group">
-        <label th:for="description">Address Information</label>
+        <label th:for="description">Is address dangerous? Check if YES</label>
         <input type ="checkbox" th:field="${addressInfo.isDangerous}" />
         <span th:errors="${addressInfo.isDangerous}" class="error"></span>
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Add Address class="btn btn-success/>
+        <input type="submit" value="Add Address" class=btn btn-success/>
     </div>
 </form>
 

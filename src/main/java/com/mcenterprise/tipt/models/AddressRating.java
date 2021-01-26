@@ -1,3 +1,5 @@
+
+
 package com.mcenterprise.tipt.models;
 
 public enum AddressRating {
@@ -29,5 +31,3 @@ public enum AddressRating {
         displayRating = "";
     }
 }
-
-

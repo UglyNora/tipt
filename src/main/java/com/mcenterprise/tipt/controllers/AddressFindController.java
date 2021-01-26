@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import static com.mcenterprise.tipt.controllers.AddressListController.columnChoices;
 
 @Controller
-@RequestMapping("search")
+@RequestMapping("address/findAddress")
 public class AddressFindController {
     @Autowired
     private AddressRepository addressRepository;
@@ -22,7 +22,7 @@ public class AddressFindController {
     @RequestMapping("")
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
-        return "findAddress";
+        return "address/findAddress";
     }
 
     @PostMapping("results")
@@ -37,6 +37,6 @@ public class AddressFindController {
         model.addAttribute("title", "Addresses " + columnChoices.get(searchType) + ": " + searchTerm);
         model.addAttribute("addresses", addresses);
 
-        return "findAddress";
+        return "address/findAddress";
     }
 }

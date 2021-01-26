@@ -3,7 +3,7 @@
 <head th:replace="fragments :: head"></head>
 <body>
 <header th:replace="fragments ::page-header "></header>
-<form th:action="@{/search/results}" method = "post">
+<form th:action="@{/findAddress/results}" method = "post">
     <h2>Search by:</h2>
 
     <p>
@@ -31,11 +31,11 @@
 
 
 <table class="address-listing">
-    <tr th:each="address: ${address}">
+    <tr th:each="address: ${addresses}">
         <td>
             <p>
                 Street Name:
-                <a th:href="@{'/view/' + ${address.street}}" th:text="${address.street}"></a>
+                <a th:href="@{'/address/listAddress/' + ${address.street}}" th:text="${address.street}"></a>
             </p>
             <p th:text="${'City: ' + address.city}"></p>
             <p>
@@ -47,13 +47,13 @@
             <p th:text="${'Zipcode: ' + address.zipCode}"></p>
             <p>
                 Address Info:
-                <a th:href="@{'/address/addressInfo/' + ${address.getAddressInfo()}}" th:text="${address.addressInfo}"></a>
+                <a th:href="@{'/address/AddressInfo/' + ${address.getAddressInfo()}}" th:text="${address.addressInfo}"></a>
             </p>
             <p>
-               Address Rating:
+                Address Rating:
             <ul th:text="${address.type}">
                 <li>
-                    <a th:href="@{'/skills/AddressRating/' + ${address.getType()}}" th:text="${address.getType()}"></a>
+                    <a th:href="@{'/address/AddressRating/' + ${address.getType()}}" th:text="${address.getType()}"></a>
                 </li>
             </ul>
             </p>
